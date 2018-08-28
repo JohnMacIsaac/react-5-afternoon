@@ -1,5 +1,8 @@
 import React,  { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateFound } from '../../ducks/reducer';
+
 
 class WizardFour extends Component {
     render(){
@@ -18,4 +21,9 @@ class WizardFour extends Component {
     }
 }
 
-export default WizardFour;
+function mapStateToProps(state) {
+    const { found } = state;
+    return found; 
+}
+
+export default connect(mapStateToProps, { updateFound })(WizardFour);
